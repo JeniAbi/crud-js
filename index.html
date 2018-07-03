@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CRUD</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/popper.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+	</head>
+	<body>
+		<div class="container">
+				<h1 class="text-center">CRUD</h1>
+			<div class="row">
+				<div class="table">
+					<table class="table table-hover" id="detailsTable">
+						<thead><th>#</th><th>S.No</th><th>Name</th><th>Price</th><th>Quantity</th><th>Amount</th><th>Action</th></thead>
+						<tbody id="tbody"></tbody>
+					</table>
+				</div>
+				<div class="btns">
+					<button class="btn btn-primary" onclick="add()">Add New</button>
+					<button class="btn btn-primary" onclick="selectView()">View</button>
+					<button class="btn btn-primary" onclick="selectDelete()">Delete</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- View Product -->
+
+		<div class="view overlay">
+			<div class="view-content col-md-8 col-sm-10 col-lg-8">
+				<h2 class="text-center">View</h2>
+				<table class="col-md-6 col-sm-10 col-lg-6">
+					<tr><td class="bold">Name :</td><td id="view-name"></td></tr>
+					<tr><td class="bold">Price :</td><td id="view-price"></td></tr>
+				</table>
+				<div class="view-btn-close">
+					<button class="btn btn-primary" onclick="viewClose()">Close</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Edit Product -->
+
+		<div class="edit overlay">
+			<div class="edit-content col-md-8 col-sm-10 col-lg-8">
+				<h2 class="text-center">Edit</h2>
+				<form name="editForm" id="editForm" action="#">
+					<div class="form-group">
+						<label for="name">Name :</label>
+						<input type="text" name="name" id="edit-name" value="" class="form-control" placeholder="Name">
+					</div>
+					<div class="form-group">
+						<label for="name">Price :</label>
+						<input type="number" name="price" id="edit-price" value="" class="form-control" min="0" placeholder="Price">
+						<input type="hidden" name="id">
+					</div>
+					<input type="button" value="Save" onclick="editSave()" class="btn btn-primary">
+					<input type="button" value="Cancel" onclick="editCancel()" class="btn btn-primary">
+				</form>
+			</div>
+		</div>
+
+		<!-- Add Product -->
+
+		<div class="add overlay">
+			<div class="add-content col-md-8 col-sm-10 col-lg-8">
+				<h2 class="text-center">Add</h2>
+				<form name="addForm" id="addForm" action="#">
+					<div class="form-group">
+						<label for="name">Name :</label>
+						<input type="text" name="name" id="add-name" value="" class="form-control" placeholder="Name" required>
+					</div>
+					<div class="form-group">
+						<label for="name">Price :</label>
+						<input type="number" name="price" id="add-price" value="" class="form-control" min="0" placeholder="Price" required>
+					</div>
+					<input type="button" value="Save" onclick="addSave()" class="btn btn-primary">
+					<input type="button" value="Cancel" onclick="addCancel()" class="btn btn-primary">
+				</form>
+			</div>
+		</div>
+
+		<!-- Selected View Products -->
+		<div class="view-list overlay">
+			<div class="view-content col-md-8 col-sm-10 col-lg-8">
+				<h2 class="text-center">View</h2>
+				<table class="col-md-6 col-sm-10 col-lg-6">
+					<thead><th>S.No</th><th>Name</th><th>Price</th></thead>
+					<tbody id="select-view-tbody"></tbody>
+				</table>
+				<div class="view-btn-close">
+					<button class="btn btn-primary" onclick="selectViewClose()">Close</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
